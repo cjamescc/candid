@@ -132,6 +132,7 @@ export default function Candid() {
   const [resumeText, setResumeText] = useState("");
   const [portfolioFiles, setPortfolioFiles] = useState([]);
   const [portfolioText, setPortfolioText] = useState("");
+  const [portfolioMode, setPortfolioMode] = useState("full");
   const [jobPosting, setJobPosting] = useState("");
   const [results, setResults] = useState(null);
   const [history, setHistory] = useState([]);
@@ -181,11 +182,15 @@ export default function Candid() {
         ? "No portfolio images or files were provided, only pasted case study text. Skip visual hierarchy findings entirely, evaluate case study depth and writing clarity from the text only. Do not invent or guess at visual details."
         : "";
 
+      const isCaseStudyMode = portfolioMode === "caseStudy" && hasPortfolio;
+
       const inputNote = !hasResume
         ? "Only a portfolio was provided, no resume. Return an empty resume array and an empty consistency array. Only populate the portfolio array."
         : !hasPortfolio
         ? "Only a resume was provided, no portfolio. Return an empty portfolio array and an empty consistency array. Only populate the resume array."
-        : "Both a resume and portfolio material were provided. Populate all three arrays.";
+        : isCaseStudyMode
+        ? "Both a resume and portfolio material were provided, but the candidate explicitly marked the portfolio material as a single case study, not their full portfolio. Do NOT run the consistency cross-check, one project cannot fairly represent everything the resume claims, flagging unrelated resume claims as unsupported here would be misleading, not honest. Return an empty consistency array and a null consistencyMatch score. Populate the resume and portfolio arrays normally, evaluating the case study purely on its own merits."
+        : "Both a resume and portfolio material were provided, and the portfolio represents the candidate's full body of work. Populate all three arrays.";
 
       const presetDims = CATEGORY_DIMENSIONS[category];
       const presetResumeDims = CATEGORY_RESUME_DIMENSIONS[category];
@@ -218,7 +223,7 @@ Resume criteria to check, informed by the four resume dimensions described below
 Portfolio criteria to check: (1) case study depth, does each project show problem, process, and outcome rather than just polished final shots, (2) visual hierarchy (only if images/files were provided), is it clear what to look at first.
 Consistency checks (only if both were provided): cross-reference every notable claim in the resume against what the portfolio actually demonstrates. Flag claims with no supporting evidence as "immediate". Confirm claims that are backed up as "good".
 
-Dimensions array rules: if a resume was provided, include four dimension entries with source "resume" using the names described below. If portfolio material was provided, include four dimension entries with source "portfolio" using the names described below. If both were provided, include one dimension entry with source "consistency" named "Claims Backed Up", using the same value as consistencyMatch. Every dimension needs its own honest score and real reasoning, don't copy the same reasoning across dimensions, and don't pad a discipline-specific dimension with generic praise if the resume genuinely doesn't demonstrate it, an honest low score with a clear reason is more useful than an inflated one.
+Dimensions array rules: if a resume was provided, include four dimension entries with source "resume" using the names described below. If portfolio material was provided, include four dimension entries with source "portfolio" using the names described below. If both were provided AND this is not single-case-study mode, include one dimension entry with source "consistency" named "Claims Backed Up", using the same value as consistencyMatch. In single-case-study mode, never include a consistency dimension. Every dimension needs its own honest score and real reasoning, don't copy the same reasoning across dimensions, and don't pad a discipline-specific dimension with generic praise if the resume genuinely doesn't demonstrate it, an honest low score with a clear reason is more useful than an inflated one.
 ${resumeDimensionContext}
 ${dimensionContext}
 
@@ -265,6 +270,7 @@ Give 3 to 5 findings per populated array. Score each provided section 0-100 base
       let parsed;
       try {
         parsed = JSON.parse(clean);
+        parsed._meta = { isCaseStudyMode };
       } catch (parseErr) {
         console.error("Candid parse error, likely truncated response:", parseErr, raw);
         setErrorMsg("The audit response got cut off before finishing. This isn't about your files, try running the audit again.");
@@ -548,8 +554,35 @@ Give 3 to 5 findings per populated array. Score each provided section 0-100 base
                 <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
                   <ImageUp size={13} className="text-blue-600" strokeWidth={2.5} />
                 </div>
-                <p className="text-sm font-semibold text-gray-800">Portfolio</p>
+                <p className="text-sm font-semibold text-gray-800">
+                  {portfolioMode === "caseStudy" ? "Case study" : "Portfolio"}
+                </p>
               </div>
+
+              <div className="flex gap-1.5 mb-2.5">
+                <button
+                  onClick={() => setPortfolioMode("full")}
+                  className={`flex-1 h-7 rounded-md text-[11px] font-medium transition-colors ${
+                    portfolioMode === "full" ? "bg-blue-600 text-white" : "border border-gray-200 text-gray-500"
+                  }`}
+                >
+                  Full portfolio
+                </button>
+                <button
+                  onClick={() => setPortfolioMode("caseStudy")}
+                  className={`flex-1 h-7 rounded-md text-[11px] font-medium transition-colors ${
+                    portfolioMode === "caseStudy" ? "bg-blue-600 text-white" : "border border-gray-200 text-gray-500"
+                  }`}
+                >
+                  Single case study
+                </button>
+              </div>
+              {portfolioMode === "caseStudy" && (
+                <p className="text-[11px] text-gray-400 mb-2.5 leading-relaxed">
+                  We'll judge this project on its own, without cross-checking it against every claim in your resume, one project can't fairly represent your whole career.
+                </p>
+              )}
+
               <label className="border-[1.5px] border-dashed border-gray-300 rounded-xl h-16 flex flex-col items-center justify-center cursor-pointer hover:border-gray-400 transition-colors">
                 <span className="text-xs text-gray-400">
                   {portfolioFiles.length
@@ -752,7 +785,9 @@ Give 3 to 5 findings per populated array. Score each provided section 0-100 base
             {results.scores?.consistencyMatch == null && (
               <div className="bg-gray-50 border border-dashed border-gray-300 rounded-xl p-3.5 mb-4">
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  No consistency check yet, that needs both a resume and portfolio to compare. Add the one you're missing to unlock it.
+                  {results._meta?.isCaseStudyMode
+                    ? "Consistency check skipped, you marked this as a single case study, so it's judged on its own rather than against every resume claim."
+                    : "No consistency check yet, that needs both a resume and portfolio to compare. Add the one you're missing to unlock it."}
                 </p>
               </div>
             )}
