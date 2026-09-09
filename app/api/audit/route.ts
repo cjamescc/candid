@@ -10,6 +10,10 @@ const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 // the client's existing parsing logic keeps working as-is.
 const MAX_TOKENS = 4000;
 
+// The audit can take longer than the default serverless function timeout while
+// waiting on the Anthropic API. Extend it so the response isn't cut off.
+export const maxDuration = 60;
+
 export async function POST(request: Request) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
