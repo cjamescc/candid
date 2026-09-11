@@ -1,0 +1,172 @@
+{
+  "scores": {
+    "resume": 72,
+    "portfolio": 58,
+    "consistencyMatch": 75,
+    "overall": 66
+  },
+  "dimensions": [
+    {
+      "source": "resume",
+      "name": "Impact Clarity",
+      "score": 68,
+      "reasoning": "Two bullets carry real numbers — the 40% Instagram engagement growth and the 500+ distribution figure — which is a meaningful start for a communication designer role. However, most of the other bullets describe duties rather than outcomes, and there's no quantified result for the rebrand or the brand guidelines work, which is the most substantive credential here. For a role explicitly asking for brand and marketing design leadership, outcome evidence on the flagship project is the gap that matters most.",
+      "quote": "Led complete rebrand for a local nonprofit, including logo, typography, and brand guidelines"
+    },
+    {
+      "source": "resume",
+      "name": "ATS Structure & Keyword Coverage",
+      "score": 74,
+      "reasoning": "Core tools are named (Adobe Creative Suite, InDesign, Illustrator, Canva) and discipline terms like 'brand systems' and 'editorial design' appear, which gives ATS parsers something to match. The job description also mentions 'cross-functional collaboration' and 'content strategy,' and neither phrase nor a close synonym appears in the resume. The missing portfolio link is a structural gap — many ATS platforms and human reviewers expect it for design roles.",
+      "quote": "Skills: Adobe Creative Suite, InDesign, Illustrator, Canva, brand systems, editorial design"
+    },
+    {
+      "source": "resume",
+      "name": "Brand Systems Depth",
+      "score": 70,
+      "reasoning": "The resume names brand systems as a skill and shows evidence across the rebrand bullet and the BrightPath collateral work, which is good. What's absent is any language about how the candidate works within or builds a brand system — strategy, decision-making, iteration — which matters specifically for a role asking candidates to 'lead brand and marketing design.' Listing the skill without demonstrating the method is a common gap reviewers in this field notice.",
+      "quote": "brand systems, editorial design"
+    },
+    {
+      "source": "resume",
+      "name": "Cross-Channel & Collaboration Evidence",
+      "score": 76,
+      "reasoning": "The resume does show cross-channel work clearly: print newsletter, social media, signage, digital are all named across bullets, and there's a direct collaboration bullet with copywriters. This aligns well with the job description's 'cross-functional collaboration with marketing and copy teams' requirement. The social channel bullet would be stronger if it named a strategy or tool rather than only the outcome metric, but the breadth is genuinely there.",
+      "quote": "Collaborated with copywriters to develop a consistent brand voice across print and digital channels"
+    },
+    {
+      "source": "portfolio",
+      "name": "Case Study Depth (Problem–Process–Outcome)",
+      "score": 52,
+      "reasoning": "The Riverside case study names the client's need and lists deliverables, and gives a concrete adoption timeline ('within two months'), which is useful. But there's almost no process visible: no mention of discovery, stakeholder feedback, iteration, or creative decisions that were made and why. The BrightPath case study is shallower still — it describes output types and a production efficiency win, but offers no design rationale. Strong communication design case studies are expected to show how the designer thought, not just what they produced.",
+      "quote": "I designed a new logo, color palette, and typography system, then built out a full brand guidelines document covering print and digital use."
+    },
+    {
+      "source": "portfolio",
+      "name": "Outcome Articulation & Metrics",
+      "score": 55,
+      "reasoning": "The Riverside case study gives one concrete outcome ('adopted center-wide within two months'), which is a real signal and better than many portfolios at this level. The BrightPath case study gives one efficiency metric ('reduced production time for recurring campaigns') but does not quantify it. Neither case study mentions audience response, client feedback, or performance metrics — the kind of evidence that makes communication design outcomes credible to a hiring manager assessing marketing impact.",
+      "quote": "adopted center-wide within two months"
+    },
+    {
+      "source": "portfolio",
+      "name": "Strategic Communication Framing",
+      "score": 50,
+      "reasoning": "Communication design roles, especially at the lead level described in this job posting, expect candidates to show they understand why design choices were made in terms of communication goals, not just aesthetic judgment. Neither case study explains what communication problem the design solved or what the audience needed to take away. The Riverside study comes closest with 'reflect its expanded mission,' but this is a client brief summary, not the candidate's own strategic framing of the problem.",
+      "quote": "Riverside Community Center needed a fresh visual identity to reflect its expanded mission."
+    },
+    {
+      "source": "portfolio",
+      "name": "Scope & Role Clarity",
+      "score": 62,
+      "reasoning": "The Riverside case study makes clear the candidate owned the full scope — logo, palette, type system, guidelines, rollout — which is a genuine strength. The BrightPath case study is hazier: 'I produced' and 'I built' are present, but the candidate's level of creative ownership versus execution is not clearly separated from the senior-designer context mentioned in the resume. Clarity about role boundaries matters when reviewers are assessing whether someone can lead versus assist.",
+      "quote": "While at BrightPath, I produced a series of brochures and posters for local business clients, focusing on clean layout and consistent use of client brand guidelines."
+    },
+    {
+      "source": "consistency",
+      "name": "Claims Backed Up",
+      "score": 75,
+      "reasoning": "Four of the resume's main claims are corroborated by the portfolio, one claim is partially supported, and one notable resume item has no portfolio counterpart. The social media content work on the resume has no corresponding case study at all, which is the most visible gap given that the job description specifically calls out social media content strategy.",
+      "quote": "Managed social media content calendar, growing Instagram engagement by 40% over six months"
+    }
+  ],
+  "resume": [
+    {
+      "severity": "good",
+      "title": "Quantified social media result",
+      "detail": "The 40% engagement growth over a named timeframe is exactly the kind of outcome metric communication designer roles ask for. This bullet is the resume's strongest because it ties an action directly to a measurable result.",
+      "quote": "Managed social media content calendar, growing Instagram engagement by 40% over six months"
+    },
+    {
+      "severity": "minor",
+      "title": "Rebrand bullet lacks outcome",
+      "detail": "The rebrand is the most prominent freelance credential, but the bullet stops at deliverables (logo, typography, brand guidelines) with no outcome stated. Adding even a brief result — adoption rate, client feedback, rollout scope — would make this the strongest bullet on the resume.",
+      "quote": "Led complete rebrand for a local nonprofit, including logo, typography, and brand guidelines"
+    },
+    {
+      "severity": "minor",
+      "title": "Junior Designer bullets are thin",
+      "detail": "The BrightPath role has only two bullets, one of which is purely assistive with no outcome. For a role applying at the lead level, this section needs at least one more bullet showing a concrete result or a decision made independently.",
+      "quote": "Assisted senior designers with client presentations"
+    },
+    {
+      "severity": "clarify",
+      "title": "No portfolio link",
+      "detail": "The resume has no URL pointing to a portfolio. For a communication designer role, most hiring workflows — automated or human — expect a link. Add one at the top of the resume near the name and title.",
+      "quote": "Jordan Reyes — Communication Designer"
+    },
+    {
+      "severity": "clarify",
+      "title": "Missing keywords for this specific role",
+      "detail": "The job description calls out 'social media content strategy' and 'cross-functional collaboration' explicitly, and neither phrase nor a close equivalent appears in the Skills section. Adding them where truthful increases the chance of a keyword match in ATS screening.",
+      "quote": "Skills: Adobe Creative Suite, InDesign, Illustrator, Canva, brand systems, editorial design"
+    }
+  ],
+  "portfolio": [
+    {
+      "severity": "immediate",
+      "title": "No process shown in either case study",
+      "detail": "Both case studies move directly from brief to deliverable with no description of research, iteration, creative rationale, or decisions made along the way. Hiring managers evaluating communication designers specifically look for evidence of thinking, not just output — this is the single biggest gap in the portfolio as written.",
+      "quote": "I designed a new logo, color palette, and typography system, then built out a full brand guidelines document covering print and digital use. The rebrand rolled out across signage, the website, and printed materials, and was adopted center-wide within two months."
+    },
+    {
+      "severity": "minor",
+      "title": "BrightPath outcome is vague",
+      "detail": "'Reduced production time for recurring campaigns' is a useful claim but carries no number or scale. Even a rough figure ('by roughly half' or 'from X hours to Y') would make this credible. Without it, the claim reads as filler.",
+      "quote": "I also built reusable email templates that reduced production time for recurring campaigns."
+    },
+    {
+      "severity": "minor",
+      "title": "No strategic framing for communication goals",
+      "detail": "Neither case study explains what the audience needed to understand or feel, or how the design choices served those communication goals. For a role leading brand and marketing design, showing that you connect visual decisions to communication strategy is as important as the executional output.",
+      "quote": "Riverside Community Center needed a fresh visual identity to reflect its expanded mission."
+    },
+    {
+      "severity": "clarify",
+      "title": "Social media work entirely absent",
+      "detail": "The resume's highest-impact freelance bullet — the Instagram content calendar and 40% engagement growth — has no corresponding case study. Given that the job description specifically names social media content strategy, this is an obvious case study to add.",
+      "quote": null
+    },
+    {
+      "severity": "good",
+      "title": "Riverside scope and ownership are clear",
+      "detail": "The Riverside case study makes it unambiguous that the candidate owned end-to-end delivery: strategy, system design, guidelines, and rollout. This level of scope clarity is genuinely useful to a reviewer assessing whether the candidate can lead, not just execute.",
+      "quote": "I designed a new logo, color palette, and typography system, then built out a full brand guidelines document covering print and digital use. The rebrand rolled out across signage, the website, and printed materials, and was adopted center-wide within two months."
+    }
+  ],
+  "consistency": [
+    {
+      "severity": "good",
+      "resumeClaim": "Led complete rebrand for a local nonprofit, including logo, typography, and brand guidelines",
+      "portfolioEvidence": "The Riverside case study confirms a full rebrand including logo, color palette, typography system, brand guidelines, and rollout across signage, website, and print — closely matching the resume claim.",
+      "suggestion": "No fix needed. Consider adding one outcome metric (e.g., reach of the rebrand rollout or client feedback) to make this corroboration even stronger."
+    },
+    {
+      "severity": "good",
+      "resumeClaim": "Produced marketing collateral including brochures, posters, and email templates",
+      "portfolioEvidence": "The BrightPath case study explicitly confirms brochures, posters, and email templates — a direct match.",
+      "suggestion": "No fix needed, but the BrightPath case study could add one quantified outcome per deliverable type to give this evidence more weight."
+    },
+    {
+      "severity": "good",
+      "resumeClaim": "Collaborated with copywriters to develop a consistent brand voice across print and digital channels",
+      "portfolioEvidence": "The Riverside case study describes rollout across print and digital channels, and the brand guidelines document implicitly covers voice. Direct evidence of copywriter collaboration is not named in the portfolio, but the channel scope is consistent.",
+      "suggestion": "If possible, add one sentence to the Riverside case study naming the collaborators involved, which would make this a full match rather than an inference."
+    },
+    {
+      "severity": "immediate",
+      "resumeClaim": "Managed social media content calendar, growing Instagram engagement by 40% over six months",
+      "portfolioEvidence": "No portfolio case study covers social media work at all. This is the resume's most metrics-driven bullet and it has zero supporting evidence in the portfolio.",
+      "suggestion": "Add a third case study covering the social media engagement project. Include the strategy used, content types designed, tools, and the 40% engagement result with context on the baseline."
+    },
+    {
+      "severity": "minor",
+      "resumeClaim": "Assisted senior designers with client presentations",
+      "portfolioEvidence": "The BrightPath case study does not mention client presentations. It covers collateral and templates only.",
+      "suggestion": "Either add a brief mention of the presentations context in the BrightPath case study, or drop this bullet from the resume if it doesn't reflect independent contribution — it adds little at the lead-level role being targeted."
+    }
+  ],
+  "_meta": {
+    "isCaseStudyMode": false
+  }
+}
