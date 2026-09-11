@@ -12,7 +12,7 @@ const MAX_TOKENS = 8000;
 
 // The audit can take longer than the default serverless function timeout while
 // waiting on the Anthropic API. Extend it so the response isn't cut off.
-export const maxDuration = 60;
+export const maxDuration = 300;
 
 export async function POST(request: Request) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
