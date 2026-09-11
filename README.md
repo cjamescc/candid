@@ -3,6 +3,8 @@
 An honest AI audit tool for designers' resumes and portfolios. Next.js port of the
 original React prototype (`candid-app.jsx`).
 
+**Live:** https://candiddesign.vercel.app
+
 ## Setup
 
 ```bash
