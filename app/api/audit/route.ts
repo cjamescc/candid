@@ -8,7 +8,7 @@ const ANTHROPIC_URL = "https://api.anthropic.com/v1/messages";
 // key server-side and proxies the request, so the key is never shipped to the
 // browser. The upstream JSON response is passed straight back, unchanged, so
 // the client's existing parsing logic keeps working as-is.
-const MAX_TOKENS = 4000;
+const MAX_TOKENS = 8000;
 
 // The audit can take longer than the default serverless function timeout while
 // waiting on the Anthropic API. Extend it so the response isn't cut off.
@@ -45,5 +45,27 @@ export async function POST(request: Request) {
   });
 
   const data = await anthropicResponse.json();
+
+  // The client (app/page.jsx) does its own extraction + JSON.parse of the
+  // audit result and that's what the user actually sees. This is a parallel
+  // attempt at the same parse, purely so a failure shows up here in the
+  // server logs — the browser console isn't something we can check from the
+  // deploy environment.
+  let raw = "";
+  try {
+    const textBlocks = (data.content || [])
+      .filter((block: { type: string }) => block.type === "text")
+      .map((block: { text: string }) => block.text);
+    raw = textBlocks.join("\n").trim();
+    const clean = raw.replace(/```json|```/g, "").trim();
+    JSON.parse(clean);
+  } catch (parseErr) {
+    console.error("Candid audit JSON parse failed:", {
+      stop_reason: data.stop_reason,
+      length: raw.length,
+      tail: raw.slice(-500),
+    });
+  }
+
   return NextResponse.json(data, { status: anthropicResponse.status });
 }
